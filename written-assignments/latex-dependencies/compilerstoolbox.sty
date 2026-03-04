@@ -1,0 +1,115 @@
+%% This LaTeX package provides common utilities for
+%% compilers assignments.
+%%
+%% @author: Thea Brick
+%% @email: tbrick@andrew.cmu.edu
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{compilerstoolbox}[2023/02/24 Latex toolbox for CMU 15411/611]
+
+%% Configure common packages that are used
+\RequirePackage{fullpage}
+\RequirePackage{proof}
+\setlength{\inferLineSkip}{4pt}
+\RequirePackage{latexsym}
+\RequirePackage[breaklinks=true,
+    colorlinks=true,
+    citecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue]{hyperref}
+
+\newcommand{\stepsto}{\rightarrow}
+
+%% Commands for defining the grammar
+\newcommand{\nonterm}[1]{$\langle${#1}$\rangle$}
+\newcommand{\tok}[1]{$\langle$\emph{#1}$\rangle$}
+\newcommand{\term}[1]{\textbf {#1}}
+\newcommand{\OR}{\ensuremath{\ | \ \ }}
+
+%% Various commands for inference rules
+\newcommand{\proves}{\vdash}
+\newcommand{\G}{\Gamma}
+\newcommand{\cons}[2]{#1, \, #2}
+\newcommand{\typed}[2]{#1 : #2}
+\newcommand{\valid}[1]{#1 \; \mathit{valid}}
+\newcommand{\typof}[3]{{#1} \proves \typed{#2}{#3}}
+
+%% Language
+\newcommand{\tint}{\texttt{int}}
+\newcommand{\tbool}{\texttt{bool}}
+\newcommand{\tstring}{\texttt{string}}
+\newcommand{\tchar}{\texttt{char}}
+\newcommand{\tstruct}[1]{\texttt{struct} #1}
+\newcommand{\tarr}[1]{#1\texttt{[]}}
+\newcommand{\tptr}[1]{#1\texttt{*}}
+\newcommand{\rtvoid}{\texttt{void}}
+
+\newcommand{\dtypedef}[2]{\texttt{typedef} #1 #2}
+
+\newcommand{\sif}[3]{\texttt{if}(#1, #2, #3)}
+\newcommand{\swhile}[2]{\texttt{while}(#1, #2)}
+\newcommand{\sfor}[4]{\texttt{for}(#1, #2, #3, #4)}
+\newcommand{\sret}[1]{\texttt{return}(#1)}
+\newcommand{\salloc}[1]{\texttt{alloc}(#1)}
+\newcommand{\sallocArray}[2]{\texttt{alloc\_array}(#1, #2)}
+\newcommand{\sassert}[1]{\texttt{assert}(#1)}
+
+\newcommand{\sassn}[2]{\texttt{assign}(#1, #2)}
+\newcommand{\sasnop}[3]{\texttt{asnop}(#1, #2, #3)}
+
+\newcommand{\snil}{\texttt{nil}}
+\newcommand{\snop}{\texttt{nop}}
+\newcommand{\sseq}[2]{\texttt{seq}(#1, #2)}
+
+\newcommand{\sdecl}[3]{\texttt{declare}(#1, #2, #3)}
+\newcommand{\sdeclassn}[4]{\texttt{declare}(#1, #2, #3, #4)}
+
+\newcommand{\etrue}{\texttt{true}}
+\newcommand{\efalse}{\texttt{false}}
+\newcommand{\enull}{\texttt{NULL}}
+\newcommand{\eintconst}{\texttt{intconst}}
+\newcommand{\eindex}[2]{#1\texttt{[}#2\texttt{]}}
+
+\newcommand{\sextfdecl}[2]{\texttt{extfdecl}(#1, #2)}
+\newcommand{\sintfdecl}[2]{\texttt{intfdecl}(#1, #2)}
+\newcommand{\sfun}[3]{\texttt{fun}(#1, #2, #3)}
+
+\newcommand{\binop}[3]{\texttt{binop}{(#1, #2, #3)}}
+\newcommand{\aplus}{\texttt{plus}}
+\newcommand{\adiv}{\texttt{div}}
+
+%% C0 has break, continue, and error but we don't use it
+%% Regardless we include since they are reserved keywords
+\newcommand{\scont}{\texttt{continue}}
+\newcommand{\sbreak}{\texttt{break}}
+\newcommand{\serror}[1]{\texttt{error}(#1)}
+
+
+%% Common variables
+\newcommand{\x}{\texttt{x}}
+\newcommand{\y}{\texttt{y}}
+\newcommand{\z}{\texttt{z}}
+
+
+%% What used to be in cmacros
+
+\newcommand{\rb}{\mbox{\tt]}}
+\newcommand{\eps}{\epsilon}
+\newcommand{\arrow}{\longrightarrow}
+\newcommand{\reg}[1]{\mathtt{\percentchar #1}}
+\newcommand{\stackp}[1]{\begin{array}[b]{l} #1\end{array}}
+\newcommand{\stackc}[1]{\begin{array}[t]{l} #1\end{array}}
+\newcommand{\live}{\mathsf{live}}
+\newcommand{\comp}{\mathrel{\mbox{?}}}
+
+\newcommand{\semi}{;}
+% \newcommand{\stepsto}{\rightarrow}
+\newcommand{\uscore}{\rule{1.2ex}{.5pt}}
+\newcommand{\comma}{,}
+\newcommand{\m}[1]{\texttt{#1}}
+\newcommand{\logand}{\texttt{\&\&}}
+\newcommand{\brhd}{\blacktriangleright}
+\newcommand{\tcase}[1]{{\sf case}_{#1}}
+\newcommand{\tenum}[1]{{\sf enum}~#1}
+
+\newcommand{\id}[0]{{\sf id}}
